@@ -21,6 +21,7 @@ function AddTodoForm({ onAddToDo }) {
       id: Date.now(),
     };
     onAddToDo(newTodo); //  Pass the newTodo Object to the onAddTodo callback prop
+    // Reset todoTitle value to an empty String ("") after adding a new todo
     setTodoTitle("");
   };
   return (

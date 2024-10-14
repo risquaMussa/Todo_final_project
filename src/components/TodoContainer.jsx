@@ -45,13 +45,66 @@ const TodoContainer = ({ tableName }) => {
     fetchData();
   }, [tableName]);
 
-  const addTodo = (newTodo) => {
-    setTodoList([...todoList, newTodo]);
+  //Using Fetch API, POST new record to Airtable with the given title field value
+  const addTodo = async (newTodo) => {
+    const options = {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_API_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        fields: {
+          title: newTodo.title,
+        },
+      }), //  Add the newTodo Object to the body of the POST request
+    };
+    try {
+      const respnose = await fetch(
+        `https://api.airtable.com/v0/${
+          import.meta.env.VITE_AIRTABLE_BASE_ID
+        }/${tableName}`,
+        options
+      );
+
+      if (!respnose.ok) {
+        throw new Error(`Error: ${respnose.status}`);
+      }
+      //  Parse the response JSON data to get the new record's title and id fields
+      const data = await respnose.json();
+      const addedTodo = {
+        title: data.fields.title,
+        id: data.id,
+      };
+      setTodoList([...todoList, addedTodo]);
+    } catch (error) {
+      console.error("Fetch error:", error.message);
+    }
   };
 
-  const removeTodo = (id) => {
-    const filteredtodo = todoList.filter((todo) => todo.id !== id);
-    setTodoList(filteredtodo);
+  const removeTodo = async (id) => {
+    const options = {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_API_TOKEN}`,
+      },
+    };
+    try {
+      const response = await fetch(
+        `https://api.airtable.com/v0/${
+          import.meta.env.VITE_AIRTABLE_BASE_ID
+        }/${tableName}/${id}`,
+        options
+      );
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+      //  If the DELETE request is successful, remove the todo from the todoList state
+      const filteredTodo = todoList.filter((todo) => todo.id !== id);
+      setTodoList(filteredTodo);
+    } catch (error) {
+      console.error("Fetch error:", error.message);
+    }
   };
 
   const toggleSortOrder = () => {

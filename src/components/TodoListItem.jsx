@@ -8,16 +8,6 @@ const TodoListItem = ({ todo, onRemoveTodo }) => {
     onRemoveTodo(todo.id);
   }
 
-  // const ButtonStyle = {
-  //   backgroundColor: "red",
-  //   color: "white",
-  //   border: "none",
-  //   borderRadius: "5px",
-  //   padding: "5px 10px",
-  //   cursor: "pointer",
-  //   marginLeft: "10px",
-  // };
-
   return (
     <>
       <li className={style.ListItem}>
