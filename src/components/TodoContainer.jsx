@@ -125,6 +125,7 @@ const TodoContainer = ({ tableName }) => {
   return (
     <div>
       <h1>Todo List</h1>
+
       <AddTodoForm onAddToDo={addTodo} />
       {isLoading ? (
         <p>Loading ...</p>
