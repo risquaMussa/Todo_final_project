@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.ListItem {
+  font-family: cursive;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: tan;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: darkbrown;
+}
+
+.ButtonStyle {
+  font-family: "Lobster", cursive;
+  background-color: rgb(244, 101, 130);
+  padding: 10px 20px;
+  border: none;
+  border: 5px;
+  color: rgb(43, 40, 40);
+  font-size: 16px;
+  cursor: pointer;
+}
+.ButtonStyle:hover {
+  background-color: lightcoral;
+}
+.FormGroup {
+  margin-bottom: 15px;
+  display: flex;
+  padding: 10px;
+}
+.title {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 600px) {
+  .ListItem {
+    font-size: 16px;
+    padding: 8px;
+  }
+  .ButtonStyle {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}

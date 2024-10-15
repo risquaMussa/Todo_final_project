@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+body {
+  font-family: "Sofia", sans-serif;
+  background-color: burlywood;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+li {
+  padding: 15px;
+  margin: 8px 0;
+  font-size: 1.2rem;
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+ul {
+  list-style-type: square;
+}
+li {
+  padding: 0%;
+  margin: 5px;
+}
+
+.todo-title {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1 {
+  font-family: cursive;
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 100px 100px 50px 45px;
+}
+.form {
+  display: flex;
+  flex-direction: row;
+  margin: 20px auto;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  padding: 10px;
+}
+.title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+.button {
+  width: auto;
+  padding: 5px 15px;
+  background-color: rgb(129, 146, 139);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  align-self: flex-start;
+}
+.button:hover {
+  background-color: lightgreen;
+}
+
+input {
+  padding: 0px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  margin-left: 8px;
+  width: 100%;
+}
+@media (max-width: 600px) {
+  .form {
+    flex-direction: column;
+  }
+  .form-group {
+    flex-direction: column;
+  }
+  .button {
+    width: 100%;
+  }
+  input {
+    margin-left: 0;
+  }
+}
