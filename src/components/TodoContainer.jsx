@@ -3,6 +3,19 @@ import AddTodoForm from "./AddTodoForm";
 import TodoList from "./TodoList";
 import { FaSortAlphaDown, FaSortAlphaDownAlt } from "react-icons/fa";
 import PropTypes from "prop-types";
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  text-align: center;
+  color: #333;
+`;
 
 const TodoContainer = ({ tableName }) => {
   const [todoList, setTodoList] = useState([]);
@@ -123,19 +136,22 @@ const TodoContainer = ({ tableName }) => {
   };
 
   return (
-    <div>
-      <h1>Todo List</h1>
-      <AddTodoForm onAddToDo={addTodo} />
-      {isLoading ? (
-        <p>Loading ...</p>
-      ) : (
-        <TodoList onRemoveTodo={removeTodo} todoList={todoList} />
-      )}
-      <button onClick={toggleSortOrder}>
-        {isAscending ? <FaSortAlphaDown /> : <FaSortAlphaDownAlt />}
-        {isAscending ? " Sort Descending" : " Sort Ascending"}
-      </button>
-    </div>
+    <Wrapper>
+      <div>
+        <h1>Todo List</h1>
+
+        <AddTodoForm onAddToDo={addTodo} />
+        {isLoading ? (
+          <p>Loading ...</p>
+        ) : (
+          <TodoList onRemoveTodo={removeTodo} todoList={todoList} />
+        )}
+        <button onClick={toggleSortOrder}>
+          {isAscending ? <FaSortAlphaDown /> : <FaSortAlphaDownAlt />}
+          {isAscending ? " Sort Descending" : " Sort Ascending"}
+        </button>
+      </div>
+    </Wrapper>
   );
 };
 

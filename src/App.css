@@ -2,7 +2,7 @@
 
 body {
   font-family: "Sofia", sans-serif;
-  background-color: #3bbdec;
+  background-color: burlywood;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -60,7 +60,7 @@ h1 {
 .button {
   width: auto;
   padding: 5px 15px;
-  background-color: blue;
+  background-color: rgb(129, 146, 139);
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -71,7 +71,7 @@ h1 {
   align-self: flex-start;
 }
 .button:hover {
-  background-color: rgb(24, 50, 110);
+  background-color: lightgreen;
 }
 
 input {
@@ -80,4 +80,18 @@ input {
   font-size: 1.2rem;
   margin-left: 8px;
   width: 100%;
+}
+@media (max-width: 600px) {
+  .form {
+    flex-direction: column;
+  }
+  .form-group {
+    flex-direction: column;
+  }
+  .button {
+    width: 100%;
+  }
+  input {
+    margin-left: 0;
+  }
 }
